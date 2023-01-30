@@ -1,0 +1,59 @@
+<h2 class="text-center">Formulario de contacto</h2>
+<section class="container-sm">
+    <section class="alert alert-danger" *ngIf="registroForm.valid">
+        Gracias por comunicarte con nosotros
+    </section>
+</section>
+<section class="container-sm">
+    <form [formGroup]="registroForm" (submit)="send()">
+        <!--Nombres-->
+        <section class="form-group m-3">
+            <input type="text" class="form-control" formControlName="nombres"
+                [ngStyle]="{'border-color': nombres?.invalid && (nombres?.dirty || nombres?.touched)?'red':'gray'}"
+                formControlName="nombres"
+                placeholder="Nombre*">
+        </section>
+         <!--email-->
+         <section class="form-group m-3">
+            <input type="email" class="form-control" formControlName="email"
+            [ngStyle]="{'border-color': email?.invalid && (email?.dirty || email?.touched)?'red':'gray'}"
+            formControlName="email"
+            placeholder="Email*">
+        </section>
+
+         <!--Telefono-->
+        <section class="form-group m-3">
+            <input 
+                    type="text" maxlength="9" class="form-control" id="telefono"
+                    [ngStyle]="{'border-color': telefono?.invalid && (telefono?.dirty || telefono?.touched)?'red':'gray'}"
+                    formControlName="telefono"
+                    placeholder="Teléfono*">
+        </section>
+        <!--Asunto-->
+        <section class="form-group m-3">
+            <input 
+                    type="text" class="form-control" formControlName="asunto"
+                    [ngStyle]="{'border-color': asunto?.invalid && (asunto?.dirty || asunto?.touched)?'red':'gray'}"
+                    formControlName="asunto"
+                    placeholder="Asunto*">
+        </section>
+        <!--Mensaje-->
+        <section class="form-group m-3">
+            <input type="text" class="form-control" formControlName="mensaje"
+                [ngStyle]="{'border-color': mensaje?.invalid && (mensaje?.dirty || mensaje?.touched)?'red':'gray'}"
+                formControlName="mensaje"
+                placeholder="Mensaje*">
+        </section>
+        <section class="text-center">
+            <button
+            [disabled]="registroForm.invalid"
+            type="submit"
+            class="btn btn-danger m-1"
+          >
+            Enviar
+          </button>
+        </section>
+    </form>
+</section>
+
+
